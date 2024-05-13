@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show de Preguntas y Respuestas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="#" alt="logo" class="img-logo"/>
+            <p class="title_1">Show de Preguntas</p>
+        </div>
+        <nav class="navegation">
+            <ul>
+                <li><a href="index.html" class="link">Inicio</a></li>
+                <li><a href="about-us.html" class="link">Sobre Nosotros</a></li>
+                <li><a href="register-login.html" class="link">Usuario</a></li>
+                <li><img src="#" alt="user-photo"></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="game" id="game-button">
+            <p>Play</p>
+        </div>        
+
+        <div class="info">
+            <p class="bold title">Idea</p>
+            <p class="text">Nuestro juego se basa en la mecánica de preguntas y respuestas, donde el jugador se moverá por las respuestas usando las teclas, donde las preguntas serán formuladas por una IA.</p>
+
+            <p class="bold title">Controles</p>
+            <p class="text">El jugador o los jugadores podrán elegir a su preferencia dos teclas para cada uno, incluyendo también los botones del ratón.</p>
+
+            <p class="bold title">Jugabilidad</p>
+            <p class="text">El número de jugadores es de 3-5, y las rondas varían como prefieras.</p>
+
+            <p class="bold title">Temas a tratar</p>
+            <p class="text">Las preguntas serán de las siguientes materias:<br>
+                - Matemática<br>
+                - Biología<br>
+                - Química<br>
+                - Lengua y literatura<br>
+                - Música<br>
+                - ECA<br>
+                - Cultura general<br>
+                - Historia<br>
+            </p>
+        </div>
+
+        <div class="chat-container">
+            <div id="chat-history"></div>
+            <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquí...">
+            <button onclick="enviarMensaje()">Enviar</button>
+        </div>
+    </main>
+    
+    <footer>    
+        <div class="about-us">
+            <a href="https://sudamericano.ec/educacion-abierta/">https://sudamericano.ec/educacion-abierta/</a>
+            <p>De <span class="text bold">Jardi</span>, <span class="text bold">Naitsabes222</span> y <span class="text bold">DarkWolfM10.</span></p>
+        </div>
+    </footer>
+    
+    <script src="action.js"></script>
+</body>
+</html>

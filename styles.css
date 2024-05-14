@@ -95,9 +95,9 @@ main {
     background-color: var(--color-brown-1);
     border: 10px solid var(--color-blue-2);
     position: absolute;
-    top: 36%;
-    left: 46%;
-    transform: translateY(10px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar el elemento exactamente */
     cursor: pointer;
     transition: 1.5s;
     padding-top: 0px;
@@ -111,7 +111,7 @@ main {
 }
 
 .game:hover {
-    transform: scale(1.05);
+    transform: translate(-50%, -50%) scale(1.5); /* Ampliar en un 10% */
 }
 
 .game p {
@@ -147,9 +147,9 @@ main {
 .additional-functionality {
     display: none; /* Inicialmente oculto */
     position: absolute;
-    top: 37%;
-    left: 36%;
-    transform: translateY(10px);
+    top: 50%; /* Posición vertical en el centro */
+    left: 50%; /* Posición horizontal en el centro */
+    transform: translate(-50%, -50%); /* Centrar el elemento exactamente */
     background-color: var(--color-blue-2);
     border: 2px solid var(--color-brown-1);
     border-radius: 10px;
@@ -157,10 +157,67 @@ main {
     z-index: 1;
     opacity: 0;
     transition: opacity 10s ease;
+    max-width: calc(100% - 40px); /* Ancho máximo relativo al 100% del contenedor menos el doble del padding */
+    max-height: calc(100% - 40px); /* Altura máxima relativa al 100% del contenedor menos el doble del padding */
+    overflow: auto;
 }
 
 .additional-functionality.show {
     opacity: 1;
+}
+
+/* Información de los jugadores */
+.player-info-container {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 2%;
+    transform: translateY(-50%);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.800);
+    border-radius: 5px;
+    transition: opacity 10s ease; /* Transición de opacidad */
+}
+
+.player-info {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.round-info {
+    display: flex;
+    position: absolute;
+    top: -40px; /* Ajustar la posición según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 0, 0, 0.5); /* Color de fondo */
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white; /* Color de texto */
+}
+
+/* Estilos para el botón "Iniciar Juego" */
+.start-game {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 200px); /* Ajusta la posición horizontal */
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    background-color: var(--color-brown-1);
+    border: 10px solid var(--color-blue-2);
+    cursor: pointer;
+    transition: 1.5s;
+    border-radius: 3rem;
+    z-index: 1; /* Asegura que esté por encima del fondo */
+}
+
+.start-game:hover {
+    transform: translate(-50%, -50%) scale(1.5); /* Ampliar en un 10% */
+}
+
+.start-game p {
+    font-size: 1.5rem;
+    color: var(--color-blue-2);
 }
 
 /* Sección de información */

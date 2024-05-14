@@ -4,4 +4,4 @@ Esta web busca ser un juego de preguntas y respuestas los cuales van a ser gener
 
 Este proyecto esta liderado por DarkWolf(Menfis C.), Naitsabes222(Sebastian M.) y Jardi.(Jasbir R.)
 
-https://sebasinfobsudamericano.github.io/Web-Open-House-Sudamericano/
+https://darkwolfm10.github.io/

@@ -22,10 +22,29 @@
         </nav>
     </header>
     <main>
-        <div class="game" id="game-button">
-            <p>Play</p>
+        <div class="game-container">
+            <div class="game" id="game-button">
+                <p>Play</p>
+            </div>
+        </div>
+        
+        <div class="additional-functionality" id="config-container">
+            <form id="config-form">
+                <label for="player-count">Número de jugadores:</label>
+                <select id="player-count" name="player-count">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+        
+                <label for="rounds">Número de rondas:</label>
+                <input type="number" id="rounds" name="rounds" min="10" max="90" value="10">
+        
+                <button type="submit">Confirmar</button>
+            </form>
         </div>        
-
+        
         <div class="info">
             <p class="bold title">Idea</p>
             <p class="text">Nuestro juego se basa en la mecánica de preguntas y respuestas, donde el jugador se moverá por las respuestas usando las teclas, donde las preguntas serán formuladas por una IA.</p>
@@ -39,9 +58,10 @@
             <p class="bold title">Temas a tratar</p>
             <p class="text">Las preguntas serán de las siguientes materias:<br>
                 - Matemática<br>
+                - Inglés
+                - Lengua y literatura<br>
                 - Biología<br>
                 - Química<br>
-                - Lengua y literatura<br>
                 - Música<br>
                 - ECA<br>
                 - Cultura general<br>

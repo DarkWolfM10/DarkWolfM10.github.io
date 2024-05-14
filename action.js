@@ -1,3 +1,51 @@
+let players = [];
+let currentPlayerIndex = 0; // Índice del jugador actual
+let currentRound = 1; // Número de ronda actual
+
+// Elementos del DOM
+const gameContainer = document.querySelector('.game-container');
+const playButton = document.getElementById('game-button');
+const configContainer = document.getElementById('config-container');
+const configForm = document.getElementById('config-form');
+const playerCountSelect = document.getElementById('player-count');
+const roundsInput = document.getElementById('rounds');
+
+// Función para mostrar el contenedor de configuración al hacer clic en el botón "Play"
+playButton.addEventListener('click', () => {
+    gameContainer.style.pointerEvents = 'none'; // Deshabilita la interacción con el botón "Play"
+    configContainer.style.display = 'block';
+    setTimeout(() => {
+        configContainer.classList.add('show'); // Agrega la clase 'show' después de un breve retraso para permitir la transición
+    }, 10);
+    playButton.classList.add('clicked');
+});
+
+// Escuchar el evento submit del formulario de configuración
+configForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Evitar que se recargue la página al enviar el formulario
+
+    // Obtener los valores seleccionados
+    const playerCount = parseInt(playerCountSelect.value);
+    const rounds = parseInt(roundsInput.value);
+
+    // Ocultar el contenedor de configuración
+    configContainer.style.display = 'none';
+
+    // Mostrar mensajes para que los jugadores ingresen sus nombres
+    for (let i = 1; i <= playerCount; i++) {
+        const playerName = prompt(`Ingresa el nombre del jugador ${i}:`);
+        players.push({
+            name: playerName || `Jugador ${i}`,
+            correctAnswers: 0,
+            incorrectAnswers: 0
+        });
+    }
+
+    // Aquí es donde deberías continuar con la lógica para comenzar el juego
+    // Por ejemplo, podrías llamar a una función para iniciar la primera ronda
+    // startGame(rounds);
+});
+
 // Definición de preguntas por tema
 const preguntas = {
     matematica: [

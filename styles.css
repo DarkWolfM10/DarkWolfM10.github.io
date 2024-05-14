@@ -48,10 +48,12 @@ header {
     list-style: none;
     margin: 0;
     padding: 0;
+    border-radius: 5rem;
 }
 
 .navegation li {
-    margin-left: 1rem;
+    margin-left: 0.2rem;
+    border-radius: 5rem;
 }
 
 .navegation a {
@@ -60,6 +62,7 @@ header {
     font-weight: bold;
     padding: 10px 15px;
     transition: 1s;
+    border-radius: 5rem;
 }
 
 .navegation a:hover {
@@ -75,7 +78,8 @@ main {
 }
 
 /* Sección del juego */
-.game {
+.game-container {
+    position: relative;
     padding: 10rem;
     text-align: center;
     background-color: var(--color-blue-1);
@@ -84,6 +88,26 @@ main {
     cursor: pointer;
     transition: transform 1.5s ease;
     margin-top: 3rem;
+}
+
+.game {
+    padding: 2rem;
+    background-color: var(--color-brown-1);
+    border: 10px solid var(--color-blue-2);
+    position: absolute;
+    top: 36%;
+    left: 46%;
+    transform: translateY(10px);
+    cursor: pointer;
+    transition: 1.5s;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 3rem;
+}
+
+.game.clicked {
+    pointer-events: none; /* Deshabilita la interacción del botón */
+    opacity: 0;
 }
 
 .game:hover {
@@ -117,6 +141,26 @@ main {
 
 .game:hover .additional-functionality {
     display: block;
+}
+
+/* Estilos para el contenedor de configuración de jugadores y rondas */
+.additional-functionality {
+    display: none; /* Inicialmente oculto */
+    position: absolute;
+    top: 37%;
+    left: 36%;
+    transform: translateY(10px);
+    background-color: var(--color-blue-2);
+    border: 2px solid var(--color-brown-1);
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 10s ease;
+}
+
+.additional-functionality.show {
+    opacity: 1;
 }
 
 /* Sección de información */

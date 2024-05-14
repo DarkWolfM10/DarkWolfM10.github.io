@@ -97,6 +97,7 @@ function startGame(rounds) {
 }
 
 
+
 // Definición de preguntas por tema
 const preguntas = {
     matematica: [

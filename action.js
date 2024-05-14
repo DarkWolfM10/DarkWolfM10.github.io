@@ -1,7 +1,3 @@
-let players = [];
-let currentPlayerIndex = 0; // Índice del jugador actual
-let currentRound = 1; // Número de ronda actual
-
 // Elementos del DOM
 const gameContainer = document.querySelector('.game-container');
 const playButton = document.getElementById('game-button');
@@ -9,6 +5,12 @@ const configContainer = document.getElementById('config-container');
 const configForm = document.getElementById('config-form');
 const playerCountSelect = document.getElementById('player-count');
 const roundsInput = document.getElementById('rounds');
+const startGameButton = document.getElementById('start-game-button');
+
+// Datos del juego
+let players = [];
+let currentPlayerIndex = 0; // Índice del jugador actual
+let currentRound = 1; // Número de ronda actual
 
 // Función para mostrar el contenedor de configuración al hacer clic en el botón "Play"
 playButton.addEventListener('click', () => {
@@ -41,10 +43,59 @@ configForm.addEventListener('submit', (event) => {
         });
     }
 
+    // Llamar a la función para mostrar la información de los jugadores
+    displayPlayerInfo();
+
+    // Imprimir los datos de configuración en la consola para verificar
+    console.log('Número de jugadores:', playerCount);
+    console.log('Número de rondas:', rounds);
+    console.log('Jugadores:', players);
+});
+
+// Función para mostrar la información de los jugadores y la ronda
+function displayPlayerInfo() {
+    const playerInfoContainer = document.createElement('div');
+    playerInfoContainer.classList.add('player-info-container');
+
+    // Crear el elemento para mostrar la ronda
+    const roundInfo = document.createElement('div');
+    roundInfo.classList.add('round-info');
+    roundInfo.textContent = `Ronda ${currentRound}`;
+    playerInfoContainer.appendChild(roundInfo);
+
+    // Crear elementos para cada jugador
+    players.forEach((player, index) => {
+        const playerElement = document.createElement('div');
+        playerElement.classList.add('player-info');
+        playerElement.textContent = `${player.name}: ${player.correctAnswers} correctas, ${player.incorrectAnswers} incorrectas`;
+        playerInfoContainer.appendChild(playerElement);
+    });
+
+    // Agregar el contenedor de información de jugador al contenedor del juego
+    gameContainer.appendChild(playerInfoContainer);
+
+    // Mostrar el contenedor de información de jugador con una transición
+    setTimeout(() => {
+        playerInfoContainer.style.display = 'block';
+        // Mostrar el botón de inicio del juego después de un breve retraso
+        setTimeout(() => {
+            startGameButton.style.display = 'block';
+        }, 100);
+    }, 100);
+}
+
+// Agregar un evento de clic al botón para iniciar el juego
+startGameButton.addEventListener('click', () => {
+    startGame(rounds);
+});
+
+// Función para iniciar el juego
+function startGame(rounds) {
     // Aquí es donde deberías continuar con la lógica para comenzar el juego
     // Por ejemplo, podrías llamar a una función para iniciar la primera ronda
     // startGame(rounds);
-});
+}
+
 
 // Definición de preguntas por tema
 const preguntas = {

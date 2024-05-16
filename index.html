@@ -50,6 +50,482 @@
                 <p>Start Game</p>
             </div>
         </div>
+
+        <div class="container">
+            <h1>Juego de Preguntas</h1>
+            <div id="config">
+                <label for="tema">Selecciona la temática:</label>
+                <select id="tema">
+                    <option value="Matemática">Matemática</option>
+                    <option value="Inglés">Inglés</option>
+                    <option value="Lengua y literatura">Lengua y literatura</option>
+                    <option value="Biología">Química</option>
+                    <option value="Música">Música</option>
+                    <option value="ECA">ECA</option>
+                    <option value="Cultura general">Cultura general</option>
+                    <option value="Historia">Historia</option>
+                </select>
+                <button id="startGame">Continuar</button>
+            </div>
+            <div id="questions" style="display: none;">
+                <!-- Matemáticas -->
+                <div class="question">
+                    <h2>Matemáticas</h2>
+                    <h3>¿Cuál es el resultado de 2 + 2?</h3>
+                    <ul class="answers">
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Matemáticas</h2>
+                    <h3>¿Cuánto es 5 x 5?</h3>
+                    <ul class="answers">
+                        <li>20</li>
+                        <li>25</li>
+                        <li>30</li>
+                        <li>35</li>
+                        <li>40</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Matemáticas</h2>
+                    <h3>¿Cuál es la raíz cuadrada de 81?</h3>
+                    <ul class="answers">
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
+                        <li>11</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Matemáticas</h2>
+                    <h3>¿Cuál es el valor de π (pi)?</h3>
+                    <ul class="answers">
+                        <li>3.14</li>
+                        <li>3.141</li>
+                        <li>3.1416</li>
+                        <li>3.14159</li>
+                        <li>3.141592</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Matemáticas</h2>
+                    <h3>¿Cuántos lados tiene un cuadrado?</h3>
+                    <ul class="answers">
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                    </ul>
+                </div>
+            
+                <!-- Inglés -->
+                <div class="question">
+                    <h2>Inglés</h2>
+                    <h3>¿Cuál es la palabra en inglés para "casa"?</h3>
+                    <ul class="answers">
+                        <li>House</li>
+                        <li>Car</li>
+                        <li>Tree</li>
+                        <li>Book</li>
+                        <li>Apple</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Inglés</h2>
+                    <h3>¿Qué significa "dog" en inglés?</h3>
+                    <ul class="answers">
+                        <li>Perro</li>
+                        <li>Gato</li>
+                        <li>Vaca</li>
+                        <li>Pájaro</li>
+                        <li>Oso</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Inglés</h2>
+                    <h3>¿Cuál es el pasado simple del verbo "to eat"?</h3>
+                    <ul class="answers">
+                        <li>Eat</li>
+                        <li>Eats</li>
+                        <li>Ate</li>
+                        <li>Eaten</li>
+                        <li>Eating</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Inglés</h2>
+                    <h3>¿Cuál es la palabra en inglés para "rojo"?</h3>
+                    <ul class="answers">
+                        <li>Red</li>
+                        <li>Blue</li>
+                        <li>Green</li>
+                        <li>Yellow</li>
+                        <li>Orange</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Inglés</h2>
+                    <h3>¿Cuál es la traducción de "hello" al español?</h3>
+                    <ul class="answers">
+                        <li>Hola</li>
+                        <li>Adiós</li>
+                        <li>Por favor</li>
+                        <li>Gracias</li>
+                        <li>Buenos días</li>
+                    </ul>
+                </div>
+            
+                <!-- Lengua y literatura -->
+                <div class="question">
+                    <h2>Lengua y literatura</h2>
+                    <h3>¿Quién escribió "Don Quijote de la Mancha"?</h3>
+                    <ul class="answers">
+                        <li>Miguel de Cervantes</li>
+                        <li>Gabriel García Márquez</li>
+                        <li>Pablo Neruda</li>
+                        <li>Jorge Luis Borges</li>
+                        <li>William Shakespeare</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Lengua y literatura</h2>
+                    <h3>¿Cuál es el género literario de "Cien años de soledad"?</h3>
+                    <ul class="answers">
+                        <li>Novela</li>
+                        <li>Poesía</li>
+                        <li>Teatro</li>
+                        <li>Ensayo</li>
+                        <li>Cuento</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Lengua y literatura</h2>
+                    <h3>¿Quién escribió "Romeo y Julieta"?</h3>
+                    <ul class="answers">
+                        <li>William Shakespeare</li>
+                        <li>Friedrich Nietzsche</li>
+                        <li>Charles Dickens</li>
+                        <li>Jane Austen</li>
+                        <li>Leo Tolstoy</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Lengua y literatura</h2>
+                    <h3>¿Cuál es el género literario de "La Odisea"?</h3>
+                    <ul class="answers">
+                        <li>Épica</li>
+                        <li>Tragedia</li>
+                        <li>Comedia</li>
+                        <li>Drama</li>
+                        <li>Romance</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Lengua y literatura</h2>
+                    <h3>¿Quién escribió "El principito"?</h3>
+                    <ul class="answers">
+                        <li>Antoine de Saint-Exupéry</li>
+                        <li>Jorge Luis Borges</li>
+                        <li>Julio Cortázar</li>
+                        <li>Albert Camus</li>
+                        <li>Franz Kafka</li>
+                    </ul>
+                </div>
+            
+                <!-- Biología -->
+                <div class="question">
+                    <h2>Biología</h2>
+                    <h3>¿Cuál es el órgano responsable de bombear sangre en el cuerpo humano?</h3>
+                    <ul class="answers">
+                        <li>Corazón</li>
+                        <li>Hígado</li>
+                        <li>Riñón</li>
+                        <li>Pulmón</li>
+                        <li>Cerebro</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Biología</h2>
+                    <h3>¿Cuál es la función principal de los pulmones?</h3>
+                    <ul class="answers">
+                        <li>Respiración</li>
+                        <li>Digestión</li>
+                        <li>Circulación</li>
+                        <li>Excreción</li>
+                        <li>Reproducción</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Biología</h2>
+                    <h3>¿Cuántos huesos tiene el cuerpo humano?</h3>
+                    <ul class="answers">
+                        <li>206</li>
+                        <li>200</li>
+                        <li>300</li>
+                        <li>100</li>
+                        <li>400</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Biología</h2>
+                    <h3>¿Qué parte del cuerpo humano es responsable de producir insulina?</h3>
+                    <ul class="answers">
+                        <li>Páncreas</li>
+                        <li>Hígado</li>
+                        <li>Riñón</li>
+                        <li>Estómago</li>
+                        <li>Cerebro</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Biología</h2>
+                    <h3>¿Cuál es la unidad básica de la vida?</h3>
+                    <ul class="answers">
+                        <li>Célula</li>
+                        <li>Átomo</li>
+                        <li>Molécula</li>
+                        <li>Organelo</li>
+                        <li>Proteína</li>
+                    </ul>
+                </div>
+            
+                <!-- Química -->
+                <div class="question">
+                    <h2>Química</h2>
+                    <h3>¿Cuál es el símbolo químico del agua?</h3>
+                    <ul class="answers">
+                        <li>H2O</li>
+                        <li>CO2</li>
+                        <li>O2</li>
+                        <li>NaCl</li>
+                        <li>HCl</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Química</h2>
+                    <h3>¿Qué gas es necesario para la combustión?</h3>
+                    <ul class="answers">
+                        <li>Oxígeno</li>
+                        <li>Nitrógeno</li>
+                        <li>Dióxido de carbono</li>
+                        <li>Hidrógeno</li>
+                        <li>Helio</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Química</h2>
+                    <h3>¿Cuál es el elemento más abundante en la corteza terrestre?</h3>
+                    <ul class="answers">
+                        <li>Oxígeno</li>
+                        <li>Carbono</li>
+                        <li>Hierro</li>
+                        <li>Aluminio</li>
+                        <li>Silicio</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Química</h2>
+                    <h3>¿Cuál es el pH del agua pura?</h3>
+                    <ul class="answers">
+                        <li>7</li>
+                        <li>5</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>6</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Química</h2>
+                    <h3>¿Qué gas es conocido como "gas de la risa"?</h3>
+                    <ul class="answers">
+                        <li>Óxido nitroso</li>
+                        <li>Dióxido de carbono</li>
+                        <li>Oxígeno</li>
+                        <li>Hidrógeno</li>
+                        <li>Helio</li>
+                    </ul>
+                </div>
+            
+                <!-- Música -->
+                <div class="question">
+                    <h2>Música</h2>
+                    <h3>¿Quién compuso la "Quinta sinfonía"?</h3>
+                    <ul class="answers">
+                        <li>Ludwig van Beethoven</li>
+                        <li>Wolfgang Amadeus Mozart</li>
+                        <li>Johann Sebastian Bach</li>
+                        <li>Franz Schubert</li>
+                        <li>Pyotr Ilyich Tchaikovsky</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Música</h2>
+                    <h3>¿Cuál es el instrumento musical más grande de la orquesta?</h3>
+                    <ul class="answers">
+                        <li>Contrabajo</li>
+                        <li>Trombón</li>
+                        <li>Tuba</li>
+                        <li>Timbal</li>
+                        <li>Corno</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Música</h2>
+                    <h3>¿Cuál es el nombre del director de una orquesta?</h3>
+                    <ul class="answers">
+                        <li>Director de orquesta</li>
+                        <li>Conductor</li>
+                        <li>Maestro</li>
+                        <li>Músico</li>
+                        <li>Director musical</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Música</h2>
+                    <h3>¿Cuál es la parte de una guitarra que produce el sonido amplificado?</h3>
+                    <ul class="answers">
+                        <li>Caja de resonancia</li>
+                        <li>Cuerdas</li>
+                        <li>Trastes</li>
+                        <li>Mástil</li>
+                        <li>Pastillas</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Música</h2>
+                    <h3>¿Cuál es el instrumento musical principal de una banda sinfónica?</h3>
+                    <ul class="answers">
+                        <li>Flauta</li>
+                        <li>Clarinete</li>
+                        <li>Saxofón</li>
+                        <li>Trompeta</li>
+                        <li>Oboe</li>
+                    </ul>
+                </div>
+            
+                <!-- ECA (Educación Cívica y Aprovechamiento del Tiempo Libre) -->
+                <div class="question">
+                    <h2>ECA</h2>
+                    <h3>¿Cuál es el objetivo principal de la educación cívica?</h3>
+                    <ul class="answers">
+                        <li>Formar ciudadanos responsables</li>
+                        <li>Enseñar matemáticas</li>
+                        <li>Promover el deporte</li>
+                        <li>Desarrollar habilidades artísticas</li>
+                        <li>Prevenir la contaminación</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>ECA</h2>
+                    <h3>¿Cuál de las siguientes actividades fomenta la convivencia y el trabajo en equipo?</h3>
+                    <ul class="answers">
+                        <li>Realizar un proyecto grupal</li>
+                        <li>Jugar fútbol</li>
+                        <li>Leer un libro</li>
+                        <li>Escuchar música</li>
+                        <li>Pintar un cuadro</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>ECA</h2>
+                    <h3>¿Qué significa la sigla "ECA"?</h3>
+                    <ul class="answers">
+                        <li>Educación Cívica y Aprovechamiento del Tiempo Libre</li>
+                        <li>Educación Continua y Aprendizaje</li>
+                        <li>Estudio de las Ciencias Aplicadas</li>
+                        <li>Escuela de Ciencias Ambientales</li>
+                        <li>Espacio de Creación Artística</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>ECA</h2>
+                    <h3>¿Cuál es la importancia del respeto en la convivencia social?</h3>
+                    <ul class="answers">
+                        <li>Favorece la armonía y la paz</li>
+                        <li>Genera competencia</li>
+                        <li>Estimula la agresión</li>
+                        <li>Fomenta la indiferencia</li>
+                        <li>Crea desconfianza</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>ECA</h2>
+                    <h3>¿Qué se entiende por "aprovechamiento del tiempo libre"?</h3>
+                    <ul class="answers">
+                        <li>Realizar actividades recreativas y culturales de forma productiva</li>
+                        <li>Dedicar tiempo exclusivamente al trabajo</li>
+                        <li>No hacer nada en particular</li>
+                        <li>Perder el tiempo</li>
+                        <li>Dedicarse al estudio todo el tiempo</li>
+                    </ul>
+                </div>
+            
+                <!-- Cultura general -->
+                <div class="question">
+                    <h2>Cultura general</h2>
+                    <h3>¿Dónde se encuentra la Torre Eiffel?</h3>
+                    <ul class="answers">
+                        <li>París, Francia</li>
+                        <li>Londres, Reino Unido</li>
+                        <li>Roma, Italia</li>
+                        <li>Madrid, España</li>
+                        <li>Berlín, Alemania</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Cultura general</h2>
+                    <h3>¿Cuál es la capital de Japón?</h3>
+                    <ul class="answers">
+                        <li>Tokio</li>
+                        <li>Pekín</li>
+                        <li>Seúl</li>
+                        <li>Bangkok</li>
+                        <li>Singapur</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Cultura general</h2>
+                    <h3>¿Quién pintó la Mona Lisa?</h3>
+                    <ul class="answers">
+                        <li>Leonardo da Vinci</li>
+                        <li>Pablo Picasso</li>
+                        <li>Vincent van Gogh</li>
+                        <li>Claude Monet</li>
+                        <li>Salvador Dalí</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Cultura general</h2>
+                    <h3>¿En qué país se encuentra la Gran Barrera de Coral?</h3>
+                    <ul class="answers">
+                        <li>Australia</li>
+                        <li>Brasil</li>
+                        <li>México</li>
+                        <li>Indonesia</li>
+                        <li>Estados Unidos</li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <h2>Cultura general</h2>
+                    <h3>¿Cuál es el océano más grande del mundo?</h3>
+                    <ul class="answers">
+                        <li>Océano Pacífico</li>
+                        <li>Océano Atlántico</li>
+                        <li>Océano Índico</li>
+                        <li>Océano Antártico</li>
+                        <li>Océano Ártico</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
         
 
         <div class="info">

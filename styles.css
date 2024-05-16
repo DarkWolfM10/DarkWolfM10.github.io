@@ -27,6 +27,13 @@ header {
     background-color: var(--color-blue-2);
 }
 
+.logo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .logo img {
     height: 50px;
 }
@@ -49,6 +56,8 @@ header {
     margin: 0;
     padding: 0;
     border-radius: 5rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .navegation li {
@@ -70,6 +79,10 @@ header {
     background-color: var(--color-brown-1);
     border-radius: 5px;
     padding: 15px 20px;
+}
+
+.navegation ul li img{
+    height: 60px;
 }
 
 /* Contenedor principal */
@@ -100,8 +113,7 @@ main {
     transform: translate(-50%, -50%); /* Centrar el elemento exactamente */
     cursor: pointer;
     transition: 1.5s;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-block: 0;
     border-radius: 3rem;
 }
 

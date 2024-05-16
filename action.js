@@ -89,7 +89,61 @@ startGameButton.addEventListener('click', () => {
     mostrarOpcionesTema();
 });
 
+// Función para mostrar las opciones de tema como botones
+function mostrarOpcionesTema() {
+    // Ocultar el botón "Start Game"
+    startGameButton.style.display = 'none';
 
+    // Crear contenedor para las opciones de tema
+    const temaOptionsContainer = document.createElement('div');
+    temaOptionsContainer.classList.add('tema-options');
+
+    // Mostrar las opciones de temas disponibles como botones
+    const temasDisponibles = ['Matemáticas', 'Inglés', 'Lengua y literatura', 'Biología', 'Química', 'Música', 'ECA', 'Cultura general', 'Historia'];
+    temasDisponibles.forEach(tema => {
+        const temaButton = document.createElement('button');
+        temaButton.classList.add('tema-option');
+        temaButton.textContent = tema;
+        
+        // Agregar el botón al contenedor de opciones de tema
+        temaOptionsContainer.appendChild(temaButton);
+    });
+
+    // Agregar contenedor de opciones de tema al contenedor del juego
+    gameContainer.appendChild(temaOptionsContainer);
+
+    // Agregar un manejador de eventos de clic al contenedor de opciones de tema
+    temaOptionsContainer.addEventListener('click', (event) => {
+        const temaSeleccionado = event.target.textContent;
+        if (temaSeleccionado) {
+            // Seleccionar un tema aleatorio
+            const preguntasTema = preguntasPredeterminadas.filter(pregunta => pregunta.tema === temaSeleccionado);
+            const preguntaAleatoria = preguntasTema[Math.floor(Math.random() * preguntasTema.length)];
+
+            // Ocultar el contenedor de las opciones de tema
+        temaOptionsContainer.style.display = 'none';
+        
+            // Mostrar la pregunta aleatoria en la interfaz
+            mostrarPregunta(preguntaAleatoria);
+
+            // Eliminar las opciones de tema
+            temaOptionsContainer.remove();
+        }
+    });
+    
+    // Crear un párrafo para indicar al usuario que seleccione el tema
+    const instrucciones = document.createElement('p');
+    instrucciones.textContent = 'Seleccione el tema de esta ronda';
+    instrucciones.classList.add('instrucciones');
+    
+    // Agregar las instrucciones al contenedor de opciones de tema
+    temaOptionsContainer.appendChild(instrucciones);
+
+    // Agregar contenedor de opciones de tema al contenedor del juego
+    gameContainer.appendChild(temaOptionsContainer);
+}
+
+// Preguntas predeterminadas
 const preguntasPredeterminadas = [
     // Matemáticas
     {
@@ -278,216 +332,104 @@ const preguntasPredeterminadas = [
     },
     {
         tema: 'Música',
-        pregunta: '¿Cuál es el instrumento principal en una banda de jazz?',
-        respuestas: ['Saxofón', 'Trompeta', 'Piano', 'Bajo', 'Batería'],
-        respuestaCorrecta: 'Saxofón'
+        pregunta: '¿Cuál es el instrumento musical principal de una banda sinfónica?',
+        respuestas: ['Flauta', 'Clarinete', 'Saxofón', 'Trompeta', 'Oboe'],
+        respuestaCorrecta: 'Clarinete'
     },
+
+    // ECA (Educación Cívica y Aprovechamiento del Tiempo Libre)
+    {
+        tema: 'ECA',
+        pregunta: '¿Cuál es el objetivo principal de la educación cívica?',
+        respuestas: ['Formar ciudadanos responsables', 'Enseñar matemáticas', 'Promover el deporte', 'Desarrollar habilidades artísticas', 'Prevenir la contaminación'],
+        respuestaCorrecta: 'Formar ciudadanos responsables'
+    },
+    {
+        tema: 'ECA',
+        pregunta: '¿Cuál de las siguientes actividades fomenta la convivencia y el trabajo en equipo?',
+        respuestas: ['Jugar fútbol', 'Leer un libro', 'Escuchar música', 'Pintar un cuadro', 'Realizar un proyecto grupal'],
+        respuestaCorrecta: 'Realizar un proyecto grupal'
+    },
+    {
+        tema: 'ECA',
+        pregunta: '¿Qué significa la sigla "ECA"?',
+        respuestas: ['Educación Cívica y Aprovechamiento del Tiempo Libre', 'Educación Continua y Aprendizaje', 'Estudio de las Ciencias Aplicadas', 'Escuela de Ciencias Ambientales', 'Espacio de Creación Artística'],
+        respuestaCorrecta: 'Educación Cívica y Aprovechamiento del Tiempo Libre'
+    },
+    {
+        tema: 'ECA',
+        pregunta: '¿Cuál es la importancia del respeto en la convivencia social?',
+        respuestas: ['Favorece la armonía y la paz', 'Genera competencia', 'Estimula la agresión', 'Fomenta la indiferencia', 'Crea desconfianza'],
+        respuestaCorrecta: 'Favorece la armonía y la paz'
+    },
+    {
+        tema: 'ECA',
+        pregunta: '¿Qué se entiende por "aprovechamiento del tiempo libre"?',
+        respuestas: ['Realizar actividades recreativas y culturales de forma productiva', 'Dedicar tiempo exclusivamente al trabajo', 'No hacer nada en particular', 'Perder el tiempo', 'Dedicarse al estudio todo el tiempo'],
+        respuestaCorrecta: 'Realizar actividades recreativas y culturales de forma productiva'
+    },
+
+    // Cultura general
+    {
+        tema: 'Cultura general',
+        pregunta: '¿Dónde se encuentra la Torre Eiffel?',
+        respuestas: ['París, Francia', 'Londres, Reino Unido', 'Roma, Italia', 'Madrid, España', 'Berlín, Alemania'],
+        respuestaCorrecta: 'París, Francia'
+    },
+    {
+        tema: 'Cultura general',
+        pregunta: '¿Cuál es la capital de Japón?',
+        respuestas: ['Tokio', 'Pekín', 'Seúl', 'Bangkok', 'Singapur'],
+        respuestaCorrecta: 'Tokio'
+    },
+    {
+        tema: 'Cultura general',
+        pregunta: '¿Quién pintó la Mona Lisa?',
+        respuestas: ['Leonardo da Vinci', 'Pablo Picasso', 'Vincent van Gogh', 'Claude Monet', 'Salvador Dalí'],
+        respuestaCorrecta: 'Leonardo da Vinci'
+    },
+    {
+        tema: 'Cultura general',
+        pregunta: '¿En qué país se encuentra la Gran Barrera de Coral?',
+        respuestas: ['Australia', 'Brasil', 'México', 'Canadá', 'Egipto'],
+        respuestaCorrecta: 'Australia'
+    },
+    {
+        tema: 'Cultura general',
+        pregunta: '¿Quién escribió la obra "Romeo y Julieta"?',
+        respuestas: ['William Shakespeare', 'Miguel de Cervantes', 'Friedrich Nietzsche', 'Gabriel García Márquez', 'Jorge Luis Borges'],
+        respuestaCorrecta: 'William Shakespeare'
+    },
+
+    // Historia
+    {
+        tema: 'Historia',
+        pregunta: '¿Quién fue el primer presidente de los Estados Unidos?',
+        respuestas: ['George Washington', 'Abraham Lincoln', 'Thomas Jefferson', 'John F. Kennedy', 'Bill Clinton'],
+        respuestaCorrecta: 'George Washington'
+    },
+    {
+        tema: 'Historia',
+        pregunta: '¿En qué año comenzó la Primera Guerra Mundial?',
+        respuestas: ['1914', '1918', '1939', '1945', '1879'],
+        respuestaCorrecta: '1914'
+    },
+    {
+        tema: 'Historia',
+        pregunta: '¿Cuál fue la civilización que construyó las pirámides de Giza?',
+        respuestas: ['Egipto', 'Grecia', 'Roma', 'China', 'India'],
+        respuestaCorrecta: 'Egipto'
+    },
+    {
+        tema: 'Historia',
+        pregunta: '¿Quién fue el líder de la Revolución Rusa de 1917?',
+        respuestas: ['Vladimir Lenin', 'Joseph Stalin', 'Leon Trotsky', 'Mikhail Gorbachev', 'Nikita Khrushchev'],
+        respuestaCorrecta: 'Vladimir Lenin'
+    },
+    {
+        tema: 'Historia',
+        pregunta: '¿En qué año se firmó la Declaración de Independencia de los Estados Unidos?',
+        respuestas: ['1776', '1789', '1804', '1821', '1865'],
+        respuestaCorrecta: '1776'
+    }
 ];
-
-let currentQuestionIndex = 0;
-let currentTopic = "";
-
-gameButton.addEventListener("click", () => {
-    configContainer.style.display = "block";
-});
-
-configForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const formData = new FormData(configForm);
-    const selectedTopic = formData.get("topic");
-    const numQuestions = formData.get("numQuestions");
-    startGame(selectedTopic, numQuestions);
-});
-
-function startGame(topic, numQuestions) {
-    currentQuestionIndex = 0;
-    currentTopic = topic;
-    gameContainer.innerHTML = "";
-    configContainer.style.display = "none";
-    playerInfoContainer.style.display = "block";
-
-    const shuffledQuestions = shuffle(questions[topic]).slice(0, numQuestions);
-
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
-}
-
-function showQuestion(question) {
-    const questionElement = document.createElement("div");
-    questionElement.classList.add("question");
-    questionElement.innerHTML = `
-        <h2>${question.question}</h2>
-        <ul>
-            <li><button class="answer-btn" data-answer="a">${question.answers.a}</button></li>
-            <li><button class="answer-btn" data-answer="b">${question.answers.b}</button></li>
-            <li><button class="answer-btn" data-answer="c">${question.answers.c}</button></li>
-        </ul>
-    `;
-    gameContainer.appendChild(questionElement);
-
-    const answerButtons = document.querySelectorAll(".answer-btn");
-    answerButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            checkAnswer(question, button.dataset.answer);
-        });
-    });
-}
-
-function checkAnswer(question, selectedAnswer) {
-    const correctAnswer = question.correctAnswer;
-    const feedbackElement = document.createElement("p");
-    if (selectedAnswer === correctAnswer) {
-        feedbackElement.textContent = "¡Respuesta correcta!";
-    } else {
-        feedbackElement.textContent = "Respuesta incorrecta. La respuesta correcta es: " + question.answers[correctAnswer];
-    }
-    gameContainer.appendChild(feedbackElement);
-
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions[currentTopic].length) {
-        setTimeout(() => {
-            gameContainer.removeChild(feedbackElement);
-            showQuestion(questions[currentTopic][currentQuestionIndex]);
-        }, 1500);
-    } else {
-        setTimeout(() => {
-            endGame();
-        }, 1500);
-    }
-}
-
-function endGame() {
-    gameContainer.innerHTML = "";
-    const endMessage = document.createElement("p");
-    endMessage.textContent = "¡Fin del juego!";
-    gameContainer.appendChild(endMessage);
-}
-
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-;
-
-// Función para seleccionar preguntas aleatorias
-function seleccionarPreguntasAleatorias(cantidadPreguntas) {
-    const preguntasAleatorias = [];
-    const copiaPreguntas = preguntasPredeterminadas.slice(); // Copia las preguntas predeterminadas para no modificar el original
-
-    for (let i = 0; i < cantidadPreguntas; i++) {
-        const index = Math.floor(Math.random() * copiaPreguntas.length);
-        preguntasAleatorias.push(copiaPreguntas[index]);
-        copiaPreguntas.splice(index, 1); // Elimina la pregunta seleccionada para no repetirla
-    }
-
-    return preguntasAleatorias;
-}
-
-// Función para mostrar opciones de tema al inicio del juego
-function mostrarOpcionesTema() {
-    gameContainer.innerHTML = ''; // Limpiar el contenedor del juego
-
-    const themeOptionsContainer = document.createElement('div');
-    themeOptionsContainer.classList.add('theme-options-container');
-
-    const themes = obtenerTemasDisponibles();
-
-    themes.forEach((theme) => {
-        const themeButton = document.createElement('button');
-        themeButton.textContent = theme;
-        themeButton.classList.add('theme-option');
-        themeButton.addEventListener('click', () => {
-            comenzarRonda(theme);
-        });
-        themeOptionsContainer.appendChild(themeButton);
-    });
-
-    gameContainer.appendChild(themeOptionsContainer);
-}
-
-// Función para obtener una lista de temas disponibles
-function obtenerTemasDisponibles() {
-    const temas = new Set();
-    preguntasPredeterminadas.forEach((pregunta) => {
-        temas.add(pregunta.tema);
-    });
-    return Array.from(temas);
-}
-
-// Función para comenzar una nueva ronda con un tema específico
-function comenzarRonda(theme) {
-    gameContainer.innerHTML = ''; // Limpiar el contenedor del juego
-
-    const preguntasTema = preguntasPredeterminadas.filter((pregunta) => pregunta.tema === theme);
-    const preguntasAleatorias = seleccionarPreguntasAleatorias(3); // Seleccionar 3 preguntas aleatorias
-
-    preguntasAleatorias.forEach((pregunta, index) => {
-        const preguntaElement = document.createElement('div');
-        preguntaElement.classList.add('question');
-        preguntaElement.innerHTML = `
-            <div class="question-header">${index + 1}. ${pregunta.pregunta}</div>
-            <div class="answers">
-                ${pregunta.respuestas.map((respuesta) => `
-                    <button class="answer">${respuesta}</button>
-                `).join('')}
-            </div>
-        `;
-
-        // Agregar evento de clic a cada respuesta
-        preguntaElement.querySelectorAll('.answer').forEach((button) => {
-            button.addEventListener('click', () => {
-                verificarRespuesta(pregunta, button.textContent);
-            });
-        });
-
-        gameContainer.appendChild(preguntaElement);
-    });
-}
-
-// Función para verificar si una respuesta es correcta
-function verificarRespuesta(pregunta, respuestaSeleccionada) {
-    const respuestaCorrecta = pregunta.respuestaCorrecta;
-
-    if (respuestaSeleccionada === respuestaCorrecta) {
-        players[currentPlayerIndex].correctAnswers++;
-        alert('Respuesta correcta!');
-    } else {
-        players[currentPlayerIndex].incorrectAnswers++;
-        alert(`Respuesta incorrecta. La respuesta correcta es: ${respuestaCorrecta}`);
-    }
-
-    currentPlayerIndex = (currentPlayerIndex + 1) % players.length; // Pasar al siguiente jugador
-    if (currentPlayerIndex === 0) {
-        currentRound++; // Incrementar el número de ronda cuando todos los jugadores hayan respondido
-    }
-
-    if (currentRound <= parseInt(roundsInput.value)) {
-        // Si quedan rondas, mostrar la información actualizada de los jugadores y continuar con la siguiente ronda
-        displayPlayerInfo();
-    } else {
-        // Si se completaron todas las rondas, mostrar el resultado final
-        mostrarResultadoFinal();
-    }
-}
-
-// Función para mostrar el resultado final del juego
-function mostrarResultadoFinal() {
-    gameContainer.innerHTML = ''; // Limpiar el contenedor del juego
-
-    const resultadoFinalContainer = document.createElement('div');
-    resultadoFinalContainer.classList.add('final-result-container');
-
-    const resultadosTitulo = document.createElement('h2');
-    resultadosTitulo.textContent = 'Resultados finales';
-    resultadoFinalContainer.appendChild(resultadosTitulo);
-
-    players.forEach((player) => {
-        const playerResult = document.createElement('div');
-        playerResult.textContent = `${player.name}: ${player.correctAnswers} respuestas correctas, ${player.incorrectAnswers} respuestas incorrectas`;
-        resultadoFinalContainer.appendChild(playerResult);
-    });
-
-    gameContainer.appendChild(resultadoFinalContainer);
-}

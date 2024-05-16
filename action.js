@@ -86,138 +86,408 @@ function displayPlayerInfo() {
 
 // Agregar un evento de clic al botón para iniciar el juego
 startGameButton.addEventListener('click', () => {
-    startGame(rounds);
+    mostrarOpcionesTema();
 });
 
-// Función para iniciar el juego
-function startGame(rounds) {
-    // Aquí es donde deberías continuar con la lógica para comenzar el juego
-    // Por ejemplo, podrías llamar a una función para iniciar la primera ronda
-    // startGame(rounds);
+
+const preguntasPredeterminadas = [
+    // Matemáticas
+    {
+        tema: 'Matemáticas',
+        pregunta: '¿Cuál es el resultado de 2 + 2?',
+        respuestas: ['3', '4', '5', '6', '7'],
+        respuestaCorrecta: '4'
+    },
+    {
+        tema: 'Matemáticas',
+        pregunta: '¿Cuánto es 5 x 5?',
+        respuestas: ['20', '25', '30', '35', '40'],
+        respuestaCorrecta: '25'
+    },
+    {
+        tema: 'Matemáticas',
+        pregunta: '¿Cuál es la raíz cuadrada de 81?',
+        respuestas: ['7', '8', '9', '10', '11'],
+        respuestaCorrecta: '9'
+    },
+    {
+        tema: 'Matemáticas',
+        pregunta: '¿Cuál es el valor de π (pi)?',
+        respuestas: ['3.14', '3.141', '3.1416', '3.14159', '3.141592'],
+        respuestaCorrecta: '3.14159'
+    },
+    {
+        tema: 'Matemáticas',
+        pregunta: '¿Cuántos lados tiene un cuadrado?',
+        respuestas: ['3', '4', '5', '6', '7'],
+        respuestaCorrecta: '4'
+    },
+
+    // Inglés
+    {
+        tema: 'Inglés',
+        pregunta: '¿Cuál es la palabra en inglés para "casa"?',
+        respuestas: ['House', 'Car', 'Tree', 'Book', 'Apple'],
+        respuestaCorrecta: 'House'
+    },
+    {
+        tema: 'Inglés',
+        pregunta: '¿Qué significa "dog" en inglés?',
+        respuestas: ['Perro', 'Gato', 'Vaca', 'Pájaro', 'Oso'],
+        respuestaCorrecta: 'Perro'
+    },
+    {
+        tema: 'Inglés',
+        pregunta: '¿Cuál es el pasado simple del verbo "to eat"?',
+        respuestas: ['Eat', 'Eats', 'Ate', 'Eaten', 'Eating'],
+        respuestaCorrecta: 'Ate'
+    },
+    {
+        tema: 'Inglés',
+        pregunta: '¿Cuál es la palabra en inglés para "rojo"?',
+        respuestas: ['Red', 'Blue', 'Green', 'Yellow', 'Orange'],
+        respuestaCorrecta: 'Red'
+    },
+    {
+        tema: 'Inglés',
+        pregunta: '¿Cuál es la traducción de "hello" al español?',
+        respuestas: ['Hola', 'Adiós', 'Por favor', 'Gracias', 'Buenos días'],
+        respuestaCorrecta: 'Hola'
+    },
+
+    // Lengua y literatura
+    {
+        tema: 'Lengua y literatura',
+        pregunta: '¿Quién escribió "Don Quijote de la Mancha"?',
+        respuestas: ['Miguel de Cervantes', 'Gabriel García Márquez', 'Pablo Neruda', 'Jorge Luis Borges', 'William Shakespeare'],
+        respuestaCorrecta: 'Miguel de Cervantes'
+    },
+    {
+        tema: 'Lengua y literatura',
+        pregunta: '¿Cuál es el género literario de "Cien años de soledad"?',
+        respuestas: ['Novela', 'Poesía', 'Teatro', 'Ensayo', 'Cuento'],
+        respuestaCorrecta: 'Novela'
+    },
+    {
+        tema: 'Lengua y literatura',
+        pregunta: '¿Quién escribió "Romeo y Julieta"?',
+        respuestas: ['William Shakespeare', 'Friedrich Nietzsche', 'Charles Dickens', 'Jane Austen', 'Leo Tolstoy'],
+        respuestaCorrecta: 'William Shakespeare'
+    },
+    {
+        tema: 'Lengua y literatura',
+        pregunta: '¿Cuál es el género literario de "La Odisea"?',
+        respuestas: ['Épica', 'Tragedia', 'Comedia', 'Drama', 'Romance'],
+        respuestaCorrecta: 'Épica'
+    },
+    {
+        tema: 'Lengua y literatura',
+        pregunta: '¿Quién escribió "El principito"?',
+        respuestas: ['Antoine de Saint-Exupéry', 'Jorge Luis Borges', 'Julio Cortázar', 'Albert Camus', 'Franz Kafka'],
+        respuestaCorrecta: 'Antoine de Saint-Exupéry'
+    },
+
+    // Biología
+    {
+        tema: 'Biología',
+        pregunta: '¿Cuál es el órgano responsable de bombear sangre en el cuerpo humano?',
+        respuestas: ['Corazón', 'Hígado', 'Riñón', 'Pulmón', 'Cerebro'],
+        respuestaCorrecta: 'Corazón'
+    },
+    {
+        tema: 'Biología',
+        pregunta: '¿Cuál es la función principal de los pulmones?',
+        respuestas: ['Respiración', 'Digestión', 'Circulación', 'Excreción', 'Reproducción'],
+        respuestaCorrecta: 'Respiración'
+    },
+    {
+        tema: 'Biología',
+        pregunta: '¿Cuántos huesos tiene el cuerpo humano?',
+        respuestas: ['206', '200', '300', '100', '400'],
+        respuestaCorrecta: '206'
+    },
+    {
+        tema: 'Biología',
+        pregunta: '¿Qué parte del cuerpo humano es responsable de producir insulina?',
+        respuestas: ['Páncreas', 'Hígado', 'Riñón', 'Estómago', 'Cerebro'],
+        respuestaCorrecta: 'Páncreas'
+    },
+    {
+        tema: 'Biología',
+        pregunta: '¿Cuál es la unidad básica de la vida?',
+        respuestas: ['Célula', 'Átomo', 'Molécula', 'Organelo', 'Proteína'],
+        respuestaCorrecta: 'Célula'
+    },
+
+    // Química
+    {
+        tema: 'Química',
+        pregunta: '¿Cuál es el símbolo químico del agua?',
+        respuestas: ['H2O', 'CO2', 'O2', 'NaCl', 'HCl'],
+        respuestaCorrecta: 'H2O'
+    },
+    {
+        tema: 'Química',
+        pregunta: '¿Qué gas es necesario para la combustión?',
+        respuestas: ['Oxígeno', 'Nitrógeno', 'Dióxido de carbono', 'Hidrógeno', 'Helio'],
+        respuestaCorrecta: 'Oxígeno'
+    },
+    {
+        tema: 'Química',
+        pregunta: '¿Cuál es el elemento más abundante en la corteza terrestre?',
+        respuestas: ['Oxígeno', 'Carbono', 'Hierro', 'Aluminio', 'Silicio'],
+        respuestaCorrecta: 'Oxígeno'
+    },
+    {
+        tema: 'Química',
+        pregunta: '¿Cuál es el pH del agua pura?',
+        respuestas: ['7', '5', '8', '9', '6'],
+        respuestaCorrecta: '7'
+    },
+    {
+        tema: 'Química',
+        pregunta: '¿Qué gas es conocido como "gas de la risa"?',
+        respuestas: ['Óxido nitroso', 'Dióxido de carbono', 'Oxígeno', 'Hidrógeno', 'Helio'],
+        respuestaCorrecta: 'Óxido nitroso'
+    },
+
+    // Música
+    {
+        tema: 'Música',
+        pregunta: '¿Quién compuso la "Quinta sinfonía"?',
+        respuestas: ['Ludwig van Beethoven', 'Wolfgang Amadeus Mozart', 'Johann Sebastian Bach', 'Franz Schubert', 'Pyotr Ilyich Tchaikovsky'],
+        respuestaCorrecta: 'Ludwig van Beethoven'
+    },
+    {
+        tema: 'Música',
+        pregunta: '¿Cuál es el instrumento musical más grande de la orquesta?',
+        respuestas: ['Contrabajo', 'Trombón', 'Tuba', 'Timbal', 'Corno'],
+        respuestaCorrecta: 'Tuba'
+    },
+    {
+        tema: 'Música',
+        pregunta: '¿Cuál es el nombre del director de una orquesta?',
+        respuestas: ['Director de orquesta', 'Conductor', 'Maestro', 'Músico', 'Director musical'],
+        respuestaCorrecta: 'Director de orquesta'
+    },
+    {
+        tema: 'Música',
+        pregunta: '¿Cuál es la parte de una guitarra que produce el sonido amplificado?',
+        respuestas: ['Cuerdas', 'Caja de resonancia', 'Trastes', 'Mástil', 'Pastillas'],
+        respuestaCorrecta: 'Caja de resonancia'
+    },
+    {
+        tema: 'Música',
+        pregunta: '¿Cuál es el instrumento principal en una banda de jazz?',
+        respuestas: ['Saxofón', 'Trompeta', 'Piano', 'Bajo', 'Batería'],
+        respuestaCorrecta: 'Saxofón'
+    },
+];
+
+let currentQuestionIndex = 0;
+let currentTopic = "";
+
+gameButton.addEventListener("click", () => {
+    configContainer.style.display = "block";
+});
+
+configForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(configForm);
+    const selectedTopic = formData.get("topic");
+    const numQuestions = formData.get("numQuestions");
+    startGame(selectedTopic, numQuestions);
+});
+
+function startGame(topic, numQuestions) {
+    currentQuestionIndex = 0;
+    currentTopic = topic;
+    gameContainer.innerHTML = "";
+    configContainer.style.display = "none";
+    playerInfoContainer.style.display = "block";
+
+    const shuffledQuestions = shuffle(questions[topic]).slice(0, numQuestions);
+
+    showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
+function showQuestion(question) {
+    const questionElement = document.createElement("div");
+    questionElement.classList.add("question");
+    questionElement.innerHTML = `
+        <h2>${question.question}</h2>
+        <ul>
+            <li><button class="answer-btn" data-answer="a">${question.answers.a}</button></li>
+            <li><button class="answer-btn" data-answer="b">${question.answers.b}</button></li>
+            <li><button class="answer-btn" data-answer="c">${question.answers.c}</button></li>
+        </ul>
+    `;
+    gameContainer.appendChild(questionElement);
 
-
-// Definición de preguntas por tema
-const preguntas = {
-    matematica: [
-        "¿Cuánto es 2 + 2?",
-        "¿Cuál es la fórmula para calcular el área de un círculo?",
-        // Agrega más preguntas de matemática aquí
-    ],
-    biologia: [
-        "¿Qué es la mitosis?",
-        "¿Cuál es la función de los glóbulos rojos?",
-        // Agrega más preguntas de biología aquí
-    ],
-    quimica: [
-        "¿Cuál es la tabla periódica de los elementos químicos?",
-        "¿Cuál es el símbolo químico del agua?",
-        // Agrega más preguntas de química aquí
-    ],
-    lengua: [
-        "¿Qué es un adjetivo?",
-        "¿Quién escribió 'Don Quijote de la Mancha'?",
-        // Agrega más preguntas de lengua y literatura aquí
-    ],
-    musica: [
-        "¿Qué es un acorde?",
-        "¿Quién compuso la 'Sinfonía n.º 9'?",
-        // Agrega más preguntas de música aquí
-    ],
-    eca: [
-        "¿Qué significa ECA?",
-        "¿Cuál es la importancia del arte en la sociedad?",
-        // Agrega más preguntas de ECA aquí
-    ],
-    cultura: [
-        "¿Cuál es la capital de Francia?",
-        "¿Qué es la Mona Lisa?",
-        // Agrega más preguntas de cultura general aquí
-    ],
-    historia: [
-        "¿Cuál fue la primera civilización conocida?",
-        "¿Quién fue el primer presidente de Estados Unidos?",
-        // Agrega más preguntas de historia aquí
-    ]
-};
-
-// Función para cargar las preguntas según la temática seleccionada
-function cargarPreguntas() {
-    const temaSeleccionado = document.getElementById("theme").value;
-    const preguntasContainer = document.getElementById("questions");
-    preguntasContainer.innerHTML = ""; // Limpiar las preguntas anteriores
-
-    // Obtener las preguntas del tema seleccionado
-    const preguntasTema = preguntas[temaSeleccionado];
-
-    // Agregar las preguntas al contenedor
-    preguntasTema.forEach((pregunta, index) => {
-        const preguntaElement = document.createElement("p");
-        preguntaElement.textContent = `Pregunta ${index + 1}: ${pregunta}`;
-        preguntasContainer.appendChild(preguntaElement);
+    const answerButtons = document.querySelectorAll(".answer-btn");
+    answerButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            checkAnswer(question, button.dataset.answer);
+        });
     });
 }
 
-// Listener para el cambio en la selección del tema
-document.getElementById("theme").addEventListener("change", cargarPreguntas);
-
-// Cargar las preguntas por defecto al cargar la página
-cargarPreguntas();
-
-// Obtenemos el botón de "Play" y le añadimos un event listener para detectar clics
-document.getElementById("game-button").addEventListener("click", function() {
-    // Llamamos a la función de personalización del juego
-    personalizarJuego();
-});
-
-// Función de personalización del juego
-function personalizarJuego() {
-    // Solicitar al usuario el número de jugadores y almacenar la información
-    var numJugadores = prompt("Ingresa el número de jugadores (entre 2 y 5):");
-    
-    // Validar que el número de jugadores esté dentro del rango establecido
-    if (numJugadores >= 2 && numJugadores <= 5) {
-        // Creamos un array para almacenar la información de los jugadores
-        var jugadores = [];
-
-        // Iteramos para solicitar el nombre de cada jugador
-        for (var i = 1; i <= numJugadores; i++) {
-            var nombre = prompt("Ingresa el nombre del jugador " + i + ":");
-            // Almacenamos el nombre en el array de jugadores
-            jugadores.push(nombre);
-        }
-
-        // Mostramos los jugadores en pantalla
-        mostrarJugadores(jugadores);
+function checkAnswer(question, selectedAnswer) {
+    const correctAnswer = question.correctAnswer;
+    const feedbackElement = document.createElement("p");
+    if (selectedAnswer === correctAnswer) {
+        feedbackElement.textContent = "¡Respuesta correcta!";
     } else {
-        // Si el número de jugadores no está dentro del rango, mostramos un mensaje de error
-        alert("Número de jugadores no válido. Por favor, ingresa un número entre 2 y 5.");
+        feedbackElement.textContent = "Respuesta incorrecta. La respuesta correcta es: " + question.answers[correctAnswer];
+    }
+    gameContainer.appendChild(feedbackElement);
+
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions[currentTopic].length) {
+        setTimeout(() => {
+            gameContainer.removeChild(feedbackElement);
+            showQuestion(questions[currentTopic][currentQuestionIndex]);
+        }, 1500);
+    } else {
+        setTimeout(() => {
+            endGame();
+        }, 1500);
     }
 }
 
-// Función para mostrar los jugadores en pantalla
-function mostrarJugadores(jugadores) {
-    // Obtenemos el elemento donde mostraremos los jugadores
-    var jugadoresElement = document.getElementById("jugadores");
+function endGame() {
+    gameContainer.innerHTML = "";
+    const endMessage = document.createElement("p");
+    endMessage.textContent = "¡Fin del juego!";
+    gameContainer.appendChild(endMessage);
+}
 
-    // Limpiamos el contenido previo en caso de que hubiera
-    jugadoresElement.innerHTML = "";
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+;
 
-    // Iteramos sobre el array de jugadores para crear elementos y mostrarlos en pantalla
-    jugadores.forEach(function(jugador) {
-        var jugadorElement = document.createElement("p");
-        jugadorElement.textContent = jugador;
-        jugadoresElement.appendChild(jugadorElement);
+// Función para seleccionar preguntas aleatorias
+function seleccionarPreguntasAleatorias(cantidadPreguntas) {
+    const preguntasAleatorias = [];
+    const copiaPreguntas = preguntasPredeterminadas.slice(); // Copia las preguntas predeterminadas para no modificar el original
+
+    for (let i = 0; i < cantidadPreguntas; i++) {
+        const index = Math.floor(Math.random() * copiaPreguntas.length);
+        preguntasAleatorias.push(copiaPreguntas[index]);
+        copiaPreguntas.splice(index, 1); // Elimina la pregunta seleccionada para no repetirla
+    }
+
+    return preguntasAleatorias;
+}
+
+// Función para mostrar opciones de tema al inicio del juego
+function mostrarOpcionesTema() {
+    gameContainer.innerHTML = ''; // Limpiar el contenedor del juego
+
+    const themeOptionsContainer = document.createElement('div');
+    themeOptionsContainer.classList.add('theme-options-container');
+
+    const themes = obtenerTemasDisponibles();
+
+    themes.forEach((theme) => {
+        const themeButton = document.createElement('button');
+        themeButton.textContent = theme;
+        themeButton.classList.add('theme-option');
+        themeButton.addEventListener('click', () => {
+            comenzarRonda(theme);
+        });
+        themeOptionsContainer.appendChild(themeButton);
+    });
+
+    gameContainer.appendChild(themeOptionsContainer);
+}
+
+// Función para obtener una lista de temas disponibles
+function obtenerTemasDisponibles() {
+    const temas = new Set();
+    preguntasPredeterminadas.forEach((pregunta) => {
+        temas.add(pregunta.tema);
+    });
+    return Array.from(temas);
+}
+
+// Función para comenzar una nueva ronda con un tema específico
+function comenzarRonda(theme) {
+    gameContainer.innerHTML = ''; // Limpiar el contenedor del juego
+
+    const preguntasTema = preguntasPredeterminadas.filter((pregunta) => pregunta.tema === theme);
+    const preguntasAleatorias = seleccionarPreguntasAleatorias(3); // Seleccionar 3 preguntas aleatorias
+
+    preguntasAleatorias.forEach((pregunta, index) => {
+        const preguntaElement = document.createElement('div');
+        preguntaElement.classList.add('question');
+        preguntaElement.innerHTML = `
+            <div class="question-header">${index + 1}. ${pregunta.pregunta}</div>
+            <div class="answers">
+                ${pregunta.respuestas.map((respuesta) => `
+                    <button class="answer">${respuesta}</button>
+                `).join('')}
+            </div>
+        `;
+
+        // Agregar evento de clic a cada respuesta
+        preguntaElement.querySelectorAll('.answer').forEach((button) => {
+            button.addEventListener('click', () => {
+                verificarRespuesta(pregunta, button.textContent);
+            });
+        });
+
+        gameContainer.appendChild(preguntaElement);
     });
 }
 
-// Event listener para el botón de confirmar temática
-document.getElementById("tematica-button").addEventListener("click", function() {
-    // Obtenemos la temática seleccionada
-    var tematica = document.getElementById("tematica-select").value;
+// Función para verificar si una respuesta es correcta
+function verificarRespuesta(pregunta, respuestaSeleccionada) {
+    const respuestaCorrecta = pregunta.respuestaCorrecta;
 
-    // Aquí puedes hacer lo que necesites con la temática seleccionada
-    // Por ahora, simplemente la mostraremos en la consola
-    console.log("Temática seleccionada:", tematica);
-});
+    if (respuestaSeleccionada === respuestaCorrecta) {
+        players[currentPlayerIndex].correctAnswers++;
+        alert('Respuesta correcta!');
+    } else {
+        players[currentPlayerIndex].incorrectAnswers++;
+        alert(`Respuesta incorrecta. La respuesta correcta es: ${respuestaCorrecta}`);
+    }
+
+    currentPlayerIndex = (currentPlayerIndex + 1) % players.length; // Pasar al siguiente jugador
+    if (currentPlayerIndex === 0) {
+        currentRound++; // Incrementar el número de ronda cuando todos los jugadores hayan respondido
+    }
+
+    if (currentRound <= parseInt(roundsInput.value)) {
+        // Si quedan rondas, mostrar la información actualizada de los jugadores y continuar con la siguiente ronda
+        displayPlayerInfo();
+    } else {
+        // Si se completaron todas las rondas, mostrar el resultado final
+        mostrarResultadoFinal();
+    }
+}
+
+// Función para mostrar el resultado final del juego
+function mostrarResultadoFinal() {
+    gameContainer.innerHTML = ''; // Limpiar el contenedor del juego
+
+    const resultadoFinalContainer = document.createElement('div');
+    resultadoFinalContainer.classList.add('final-result-container');
+
+    const resultadosTitulo = document.createElement('h2');
+    resultadosTitulo.textContent = 'Resultados finales';
+    resultadoFinalContainer.appendChild(resultadosTitulo);
+
+    players.forEach((player) => {
+        const playerResult = document.createElement('div');
+        playerResult.textContent = `${player.name}: ${player.correctAnswers} respuestas correctas, ${player.incorrectAnswers} respuestas incorrectas`;
+        resultadoFinalContainer.appendChild(playerResult);
+    });
+
+    gameContainer.appendChild(resultadoFinalContainer);
+}
